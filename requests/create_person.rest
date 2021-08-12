@@ -1,0 +1,35 @@
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Josep Bosch",
+  "number": "88839293292"
+}
+
+###
+
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Ada Lovelace",
+  "number": "88839293292"
+}
+
+###
+
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Josep Bosch"
+}
+
+###
+
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "number": "88839293292"
+}
