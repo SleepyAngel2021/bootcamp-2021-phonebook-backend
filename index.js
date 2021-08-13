@@ -134,6 +134,21 @@ app.post(
   }
 )
 
+//update person
+app.put('/api/persons/:id', morgan('tiny'), (req, res) => {
+  const id = Number(req.params.id)
+
+  const person = req.body
+  const pers = persons.find(pers => pers.id === id)
+
+  if (pers) {
+    pers.number = person.number
+    res.status(200).end()
+  } else {
+    res.status(404).end
+  }
+})
+
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
