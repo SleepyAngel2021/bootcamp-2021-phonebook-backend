@@ -119,7 +119,7 @@ app.post(
         .end()
     }
 
-    const ids = persons.map(person => person.id)
+    const ids = persons.map(person => person.id) || 1
     const maxId = Math.max(...ids)
 
     const newPerson = {
