@@ -144,7 +144,7 @@ app.put('/api/persons/:id', morgan(':body'), (req, res) => {
     persons[ind].number = number
     res.status(200).json(persons[ind]).end()
   } else {
-    res.status(404).end
+    res.status(404).end()
   }
 })
 
