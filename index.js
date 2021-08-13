@@ -135,15 +135,14 @@ app.post(
 )
 
 //update person
-app.put('/api/persons/:id', morgan('tiny'), (req, res) => {
+app.put('/api/persons/:id', morgan(':body'), (req, res) => {
   const id = Number(req.params.id)
+  const { number } = req.body
+  const ind = persons.findIndex(pers => pers.id === id)
 
-  const person = req.body
-  const pers = persons.find(pers => pers.id === id)
-
-  if (pers) {
-    pers.number = person.number
-    res.status(200).end()
+  if (ind !== -1) {
+    persons[ind].number = number
+    res.status(200).json(persons[ind]).end()
   } else {
     res.status(404).end
   }
