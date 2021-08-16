@@ -86,9 +86,7 @@ app.post(
 
     newPerson
       .save()
-      .then(savedPerson => res.json(savedPerson))
-      .status(201)
-      .end()
+      .then(savedPerson => res.json(savedPerson).status(201).end())
   }
 )
 
