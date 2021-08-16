@@ -70,7 +70,7 @@ app.delete('/api/persons/:id', morgan('tiny'), (req, res, next) => {
 app.post(
   '/api/persons',
   morgan(':method :url :status :res[content-length] :response-time ms :body'),
-  (req, res) => {
+  (req, res, next) => {
     const person = req.body
 
     if (person.name === undefined || person.number === undefined) {
@@ -87,6 +87,7 @@ app.post(
     newPerson
       .save()
       .then(savedPerson => res.json(savedPerson).status(201).end())
+      .catch(err => next(err))
   }
 )
 
